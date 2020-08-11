@@ -1,0 +1,92 @@
+***************************************************************************
+***************************************************************************
+mURL is shortened version of cURL app which is created by Mahdi Rezaie 
+
+Website: http://ceit.aut.ac.ir/~9728040
+
+mURL v1.0
+
+Usage: murl <Command>or<URL> <arguments>
+
+Note: It is important to use commands or url as first argument.
+
+---------------------------------------------------------------------------
+
+Commands Brief:
+
+	Command				Description
+	
+	help				Print this note
+	Create				Create a request group
+	List				Show groups or requests
+	Fire				Run a saved request
+	<URL>				Make a request to the url
+	
+---------------------------------------------------------------------------
+
+Create Command:
+
+	Usage: 
+	
+	murl create <new group name>
+		Creates a new group
+	
+---------------------------------------------------------------------------
+
+List Command:
+	
+	Usage:
+	
+	murl list	
+		shows a list of all groups
+		
+	murl list <group name>	   
+		shows a list of requests in the group
+
+---------------------------------------------------------------------------
+
+Fire Command:
+	
+	Usage: 
+	
+	murl fire <groupname> <files indexes>...	
+		Runs saved requests with specified indexes.
+		This can fire multiple requests
+	
+	example: murl fire google 2 4 8
+	
+---------------------------------------------------------------------------
+
+<URL> or Request Command:
+
+	Usage:
+	
+	murl <url> <arguments>
+	
+	sends a request with specified arguments.
+	
+	Arguments:
+	
+		Argument						Description
+		
+		-h or --help					Show this text
+		-M <method>						Set request method
+		-H <key:value;key2:value2...>	Set request headers
+		-f								Follow redirects
+		-i								Verbose
+		-d <key=value>					Send form data
+		-j or --json <{"key":"value"}>	Send json data
+		-S or --save <group>			Save request to group
+		-S or --save <group> <name>		Save request to group with name
+		-O								Save response body to file
+		-O <name>						Save response body with name
+		
+	Important:
+
+		***	If your form data contains a key which contains "file"
+			prgoram looks for a file "value" and tries to send. If
+			any errors happened program sends the value itself.
+			
+		*** The requests will be saved in ./data/requests and
+			The ouput bodies will be saved in ./data/outputs
+
